@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" class="mat-elevation-z4">
+  <img src="assets/logo.png" alt="Blog Pessoal" class="app-logo" />
+  <span class="spacer"></span>
+
+  <ng-container *ngIf="auth.isAuthenticated(); else loggedOut">
+    <!-- botão Perfil com avatar ou ícone alinhados -->
+    <button mat-button routerLink="/profile" class="profile-button">
+      <ng-container *ngIf="(auth.userProfile$ | async)?.avatar; else defaultIcon">
+        <img
+          [src]="(auth.userProfile$ | async)?.avatar"
+          alt="Avatar"
+          class="header-avatar"
+        />
+      </ng-container>
+      <ng-template #defaultIcon>
+        <mat-icon class="header-avatar">person</mat-icon>
+      </ng-template>
+      <span class="profile-text">Perfil</span>
+    </button>
+
+    <!-- botão Logout -->
+    <button mat-button (click)="logout()" class="logout-button">
+      Logout
+    </button>
+  </ng-container>
+
+  <ng-template #loggedOut>
+    <button mat-button routerLink="/signup">Cadastrar</button>
+    <button mat-button routerLink="/login">Login</button>
+  </ng-template>
+</mat-toolbar>
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
+
+<app-footer></app-footer>

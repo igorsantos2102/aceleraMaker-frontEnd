@@ -1,0 +1,67 @@
+/* profile.component.css */
+
+/* Card do perfil */
+.profile-card {
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+/* Inputs com largura total */
+.full-width {
+  width: 100%;
+  margin-top: 16px;
+}
+
+/* Container do avatar, para posicionar botão absoluto */
+.avatar-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 16px;
+}
+
+/* Foto de avatar */
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Placeholder (quando não há foto) */
+.avatar.placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tamanho e cor do ícone de placeholder */
+.avatar.placeholder mat-icon {
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+/* Botão de upload (círculo rosa) */
+.avatar-upload {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #f48fb1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Ícone de câmera centralizado */
+.avatar-upload mat-icon {
+  font-size: 25px;
+  color: #fff;
+}

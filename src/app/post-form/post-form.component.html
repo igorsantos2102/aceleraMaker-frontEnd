@@ -1,0 +1,49 @@
+<mat-card class="post-form-card mat-elevation-z2">
+  <mat-card-header>
+    <mat-card-title>
+      {{ isEdit ? 'Editar Postagem' : 'Nova Postagem' }}
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Título</mat-label>
+        <mat-icon matPrefix>title</mat-icon>
+        <input matInput placeholder="Digite o título" formControlName="titulo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Conteúdo</mat-label>
+        <mat-icon matPrefix>description</mat-icon>
+        <textarea matInput placeholder="Digite o conteúdo" formControlName="conteudo" rows="5"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Autor</mat-label>
+        <mat-icon matPrefix>person</mat-icon>
+        <input matInput placeholder="Nome do autor" formControlName="autor" />
+      </mat-form-field>
+
+      <button
+        mat-flat-button
+        color="primary"
+        class="full-width btn-submit"
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        {{ isEdit ? 'Atualizar' : 'Criar' }}
+      </button>
+
+      <button
+        mat-button
+        color="warn"
+        class="full-width btn-cancel"
+        routerLink="/posts"
+      >
+        Cancelar
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

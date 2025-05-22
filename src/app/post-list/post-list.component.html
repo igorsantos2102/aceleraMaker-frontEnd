@@ -1,0 +1,44 @@
+<mat-card class="post-list-card mat-elevation-z2">
+  <mat-card-title>Listar Postagens</mat-card-title>
+  <mat-card-content>
+
+    <div class="filters">
+      <mat-form-field appearance="outline" class="filter-field">
+        <mat-label>Buscar por título</mat-label>
+        <input matInput [formControl]="titleFilter" placeholder="Título" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="filter-field">
+        <mat-label>Filtrar por autor</mat-label>
+        <mat-select [formControl]="authorFilter">
+          <mat-option value="">Todos</mat-option>
+          <mat-option *ngFor="let auth of authors" [value]="auth">{{ auth }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="loading" *ngIf="loading">
+      <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>
+    </div>
+
+    <mat-list *ngIf="!loading">
+      <mat-list-item *ngFor="let post of filteredPosts" class="list-item">
+        <div class="item-content">
+          <div>
+            <h3>{{ post.titulo }}</h3>
+            <p>{{ post.autor }} • {{ post.data | date:'short' }}</p>
+          </div>
+          <div class="actions">
+            <button mat-icon-button color="primary" (click)="onEdit(post.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="onDelete(post.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+
+  </mat-card-content>
+</mat-card>

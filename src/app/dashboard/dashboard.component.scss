@@ -1,0 +1,49 @@
+.dashboard-container {
+  padding: 1rem;
+}
+
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.empty-state {
+  text-align: center;
+  margin: 2rem;
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.summary-card,
+.chart-card,
+.recent-card {
+  margin-bottom: 1rem;
+}
+
+/* Cabeçalho comum com ícone ao lado do título */
+.card-header {
+  display: flex;
+  align-items: center;
+}
+
+.card-icon {
+  margin-right: 0.5rem;
+  font-size: 24px;
+}
+
+/* Centraliza e colore o número de postagens */
+.summary-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  color: #9c27b0;
+  padding: 1rem 0;
+}
+
+.chart-container {
+  height: 240px;
+}

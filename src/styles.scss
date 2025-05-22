@@ -1,0 +1,31 @@
+/* 1) Importar o tema pré-construído do Material */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* 2) (Opcional) Fonte global se você quiser usar a “Inter” como no host de app.component */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* 3) Reset básico e box‑sizing */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 4) Definir background padrão da aplicação */
+body {
+  background: #f5f5f5;
+}
+
+/* 5) Classes utilitárias que usamos nos components */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.full-width {
+  width: 100%;
+}

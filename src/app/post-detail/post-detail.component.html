@@ -1,0 +1,47 @@
+<div class="detail-container">
+
+  <!-- Spinner -->
+  <div *ngIf="loading" class="spinner-wrapper">
+    <mat-progress-spinner mode="indeterminate" diameter="60"></mat-progress-spinner>
+  </div>
+
+  <ng-container *ngIf="!loading">
+    <ng-container *ngIf="post; else notFoundTpl">
+      <mat-card class="detail-card mat-elevation-z2">
+        <mat-card-header>
+          <div class="detail-header">
+            <mat-icon class="detail-icon">article</mat-icon>
+            <div class="detail-titles">
+              <mat-card-title>{{ post.titulo }}</mat-card-title>
+              <mat-card-subtitle>
+                {{ post.autor }} • {{ post.data | date:'long' }}
+              </mat-card-subtitle>
+            </div>
+          </div>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p class="content">{{ post.conteudo }}</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-flat-button color="primary" routerLink="/posts" class="back-button">
+            <mat-icon class="back-icon">arrow_back</mat-icon>
+            Voltar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
+
+    <ng-template #notFoundTpl>
+      <div class="empty-state">
+        <mat-icon>error_outline</mat-icon>
+        <p>Post não encontrado.</p>
+        <button mat-flat-button color="accent" routerLink="/posts/create">
+          Criar nova postagem
+        </button>
+      </div>
+    </ng-template>
+  </ng-container>
+
+</div>

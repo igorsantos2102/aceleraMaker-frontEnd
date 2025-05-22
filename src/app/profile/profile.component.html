@@ -1,0 +1,55 @@
+<!-- profile.component.html -->
+<mat-card class="profile-card">
+  <mat-card-header>
+    <mat-card-title>Meu Perfil</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="avatar-container">
+      <ng-container *ngIf="avatarPreview; else placeholder">
+        <img [src]="avatarPreview" alt="Avatar" class="avatar" />
+      </ng-container>
+      <ng-template #placeholder>
+        <div class="avatar placeholder">
+          <mat-icon>person</mat-icon>
+        </div>
+      </ng-template>
+      <label for="fileInput" class="avatar-upload">
+        <mat-icon>photo_camera</mat-icon>
+        <input
+          id="fileInput"
+          type="file"
+          accept="image/*"
+          (change)="onFileChange($event)"
+          hidden
+        />
+      </label>
+    </div>
+
+    <h3 class="username">{{ auth.getUsername() }}</h3>
+
+    <form [formGroup]="profileForm" class="profile-form">
+      <!-- Email -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+
+      <!-- Novo: Nome completo -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome completo</mat-label>
+        <input matInput formControlName="fullName" />
+      </mat-form-field>
+
+      <!-- Novo: Sobre (texto livre) -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Sobre</mat-label>
+        <textarea matInput rows="4" formControlName="about"></textarea>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-flat-button color="primary" (click)="onSave()">Salvar</button>
+  </mat-card-actions>
+</mat-card>
